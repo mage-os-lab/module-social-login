@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+    <table name="digitalway_social_identity" resource="default" engine="innodb" comment="Social identities linked to customers">
+        <column xsi:type="int" name="identity_id" unsigned="true" nullable="false" identity="true" comment="Identity ID"/>
+        <column xsi:type="int" name="customer_id" unsigned="true" nullable="false" identity="false" comment="Customer ID"/>
+        <column xsi:type="smallint" name="website_id" unsigned="true" nullable="false" identity="false" comment="Website ID"/>
+        <column xsi:type="varchar" name="provider" nullable="false" length="32" comment="Provider code"/>
+        <column xsi:type="varchar" name="provider_user_id" nullable="false" length="255" comment="Provider user ID"/>
+        <column xsi:type="varchar" name="email" nullable="true" length="255" comment="Email at link time"/>
+        <column xsi:type="timestamp" name="created_at" on_update="false" nullable="false" default="CURRENT_TIMESTAMP" comment="Created at"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="identity_id"/>
+        </constraint>
+        <constraint xsi:type="foreign" referenceId="DIGITALWAY_SOCIAL_IDENTITY_CUSTOMER_ID_CUSTOMER_ENTITY_ENTITY_ID"
+                    table="digitalway_social_identity" column="customer_id"
+                    referenceTable="customer_entity" referenceColumn="entity_id" onDelete="CASCADE"/>
+        <constraint xsi:type="foreign" referenceId="DIGITALWAY_SOCIAL_IDENTITY_WEBSITE_ID_STORE_WEBSITE_WEBSITE_ID"
+                    table="digitalway_social_identity" column="website_id"
+                    referenceTable="store_website" referenceColumn="website_id" onDelete="CASCADE"/>
+        <constraint xsi:type="unique" referenceId="DIGITALWAY_SOCIAL_IDENTITY_PROVIDER_PROVIDER_USER_ID_WEBSITE_ID">
+            <column name="provider"/>
+            <column name="provider_user_id"/>
+            <column name="website_id"/>
+        </constraint>
+        <constraint xsi:type="unique" referenceId="DIGITALWAY_SOCIAL_IDENTITY_CUSTOMER_ID_PROVIDER">
+            <column name="customer_id"/>
+            <column name="provider"/>
+        </constraint>
+    </table>
+</schema>

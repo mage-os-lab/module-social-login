@@ -1,0 +1,51 @@
+<?php
+/** @var \Digitalway\SocialLogin\Block\CompleteEmail $block */
+/** @var \Magento\Framework\Escaper $escaper */
+if ($block->getPending() === null) {
+    return;
+}
+?>
+<div class="dw-social-login-complete">
+    <p><?= $escaper->escapeHtml(__(
+        '%1 did not provide all the required details. Fill in the fields to finish signing in.',
+        $block->getProviderLabel()
+    )) ?></p>
+    <form class="form" id="dw-social-login-complete-form" method="post"
+          action="<?= $escaper->escapeUrl($block->getPostUrl()) ?>"
+          data-mage-init='{"validation":{}}'>
+        <?= $block->getBlockHtml('formkey') ?>
+        <fieldset class="fieldset">
+            <div class="field email required">
+                <label class="label" for="dw-sl-email"><span><?= $escaper->escapeHtml(__('Email')) ?></span></label>
+                <div class="control">
+                    <input type="email" name="email" id="dw-sl-email" class="input-text" autocomplete="email"
+                           value="<?= $escaper->escapeHtmlAttr($block->getEmail()) ?>"
+                           data-validate="{required:true, 'validate-email':true}"/>
+                </div>
+            </div>
+            <div class="field firstname required">
+                <label class="label" for="dw-sl-firstname"><span><?= $escaper->escapeHtml(__('First Name')) ?></span></label>
+                <div class="control">
+                    <input type="text" name="firstname" id="dw-sl-firstname" class="input-text" autocomplete="given-name"
+                           value="<?= $escaper->escapeHtmlAttr($block->getFirstname()) ?>"
+                           data-validate="{required:true}"/>
+                </div>
+            </div>
+            <div class="field lastname required">
+                <label class="label" for="dw-sl-lastname"><span><?= $escaper->escapeHtml(__('Last Name')) ?></span></label>
+                <div class="control">
+                    <input type="text" name="lastname" id="dw-sl-lastname" class="input-text" autocomplete="family-name"
+                           value="<?= $escaper->escapeHtmlAttr($block->getLastname()) ?>"
+                           data-validate="{required:true}"/>
+                </div>
+            </div>
+        </fieldset>
+        <div class="actions-toolbar">
+            <div class="primary">
+                <button type="submit" class="action submit primary">
+                    <span><?= $escaper->escapeHtml(__('Continue')) ?></span>
+                </button>
+            </div>
+        </div>
+    </form>
+</div>

@@ -1,0 +1,20 @@
+{
+    "digitalway_social_identity": {
+        "column": {
+            "identity_id": true,
+            "customer_id": true,
+            "website_id": true,
+            "provider": true,
+            "provider_user_id": true,
+            "email": true,
+            "created_at": true
+        },
+        "constraint": {
+            "PRIMARY": true,
+            "DIGITALWAY_SOCIAL_IDENTITY_CUSTOMER_ID_CUSTOMER_ENTITY_ENTITY_ID": true,
+            "DIGITALWAY_SOCIAL_IDENTITY_WEBSITE_ID_STORE_WEBSITE_WEBSITE_ID": true,
+            "DIGITALWAY_SOCIAL_IDENTITY_PROVIDER_PROVIDER_USER_ID_WEBSITE_ID": true,
+            "DIGITALWAY_SOCIAL_IDENTITY_CUSTOMER_ID_PROVIDER": true
+        }
+    }
+}

@@ -1,0 +1,22 @@
+<?php
+/** @var \Digitalway\SocialLogin\Block\Buttons $block */
+/** @var \Magento\Framework\Escaper $escaper */
+$buttons = $block->getButtons();
+if ($buttons === []) {
+    return;
+}
+?>
+<div class="dw-social-login">
+    <p class="dw-social-login__title"><?= $escaper->escapeHtml(__('Or sign in with')) ?></p>
+    <ul class="dw-social-login__list">
+        <?php foreach ($buttons as $button): ?>
+            <li>
+                <a class="dw-social-login__button dw-social-login__button--<?= $escaper->escapeHtmlAttr($button['code']) ?>"
+                   href="<?= $escaper->escapeUrl($button['url']) ?>">
+                    <img src="<?= $escaper->escapeUrl($button['icon']) ?>" alt="" width="18" height="18"/>
+                    <span><?= $escaper->escapeHtml($button['text']) ?></span>
+                </a>
+            </li>
+        <?php endforeach; ?>
+    </ul>
+</div>

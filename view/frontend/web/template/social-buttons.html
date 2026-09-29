@@ -1,0 +1,11 @@
+<div class="dw-social-login dw-social-login--checkout" data-bind="visible: buttons.length">
+    <p class="dw-social-login__title" data-bind="i18n: 'Or sign in with'"></p>
+    <ul class="dw-social-login__list" data-bind="foreach: buttons">
+        <li>
+            <a class="dw-social-login__button" data-bind="attr: {href: url}, css: 'dw-social-login__button--' + code">
+                <img alt="" width="18" height="18" data-bind="attr: {src: icon}"/>
+                <span data-bind="text: text"></span>
+            </a>
+        </li>
+    </ul>
+</div>

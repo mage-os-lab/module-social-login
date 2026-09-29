@@ -1,0 +1,116 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="digitalway" translate="label" sortOrder="200">
+            <label>Digitalway</label>
+        </tab>
+        <section id="digitalway_sociallogin" translate="label" sortOrder="120"
+                 showInDefault="1" showInWebsite="1" showInStore="0">
+            <tab>digitalway</tab>
+            <label>Social Login</label>
+            <resource>Digitalway_SocialLogin::config</resource>
+
+            <group id="general" translate="label" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="0">
+                <label>General Settings</label>
+                <field id="enabled" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Enabled</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+            </group>
+
+            <group id="google" translate="label" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="0">
+                <label>Google</label>
+                <field id="enabled" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Enabled</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="client_id" translate="label comment" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Client ID</label>
+                    <comment>Google Cloud Console → APIs &amp; Services → Credentials → OAuth 2.0 Client ID (type "Web application").</comment>
+                </field>
+                <field id="client_secret" translate="label" type="obscure" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Client Secret</label>
+                    <backend_model>Magento\Config\Model\Config\Backend\Encrypted</backend_model>
+                </field>
+                <field id="redirect_uri" translate="label comment" type="text" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Redirect URI</label>
+                    <frontend_model>Digitalway\SocialLogin\Block\Adminhtml\System\Config\RedirectUri</frontend_model>
+                    <comment>Copy it into "Authorized redirect URIs".</comment>
+                </field>
+            </group>
+
+            <group id="facebook" translate="label" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="0">
+                <label>Facebook</label>
+                <field id="enabled" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Enabled</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="client_id" translate="label comment" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>App ID</label>
+                    <comment>Meta for Developers → your app → App settings → Basic.</comment>
+                </field>
+                <field id="client_secret" translate="label" type="obscure" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>App Secret</label>
+                    <backend_model>Magento\Config\Model\Config\Backend\Encrypted</backend_model>
+                </field>
+                <field id="graph_version" translate="label comment" type="text" sortOrder="35" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Graph API Version</label>
+                    <comment>Format vNN.0. Update it when Meta retires the version in use.</comment>
+                </field>
+                <field id="redirect_uri" translate="label comment" type="text" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Redirect URI</label>
+                    <frontend_model>Digitalway\SocialLogin\Block\Adminhtml\System\Config\RedirectUri</frontend_model>
+                    <comment>Copy it into Facebook Login → Settings → "Valid OAuth Redirect URIs".</comment>
+                </field>
+            </group>
+
+            <group id="linkedin" translate="label" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="0">
+                <label>LinkedIn</label>
+                <field id="enabled" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Enabled</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="client_id" translate="label comment" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Client ID</label>
+                    <comment>linkedin.com/developers → your app → Auth. Requires the "Sign In with LinkedIn using OpenID Connect" product.</comment>
+                </field>
+                <field id="client_secret" translate="label" type="obscure" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Client Secret</label>
+                    <backend_model>Magento\Config\Model\Config\Backend\Encrypted</backend_model>
+                </field>
+                <field id="redirect_uri" translate="label comment" type="text" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Redirect URI</label>
+                    <frontend_model>Digitalway\SocialLogin\Block\Adminhtml\System\Config\RedirectUri</frontend_model>
+                    <comment>Copy it into Auth → "Authorized redirect URLs for your app".</comment>
+                </field>
+            </group>
+
+            <group id="instagram" translate="label comment" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="0">
+                <label>Instagram</label>
+                <comment>Works only with Instagram Business or Creator accounts and does not provide the email address: on first sign-in the customer enters it in a form.</comment>
+                <field id="enabled" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Enabled</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="client_id" translate="label comment" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Instagram App ID</label>
+                    <comment>Meta for Developers → your app → Instagram → "API setup with Instagram login".</comment>
+                </field>
+                <field id="client_secret" translate="label" type="obscure" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Instagram App Secret</label>
+                    <backend_model>Magento\Config\Model\Config\Backend\Encrypted</backend_model>
+                </field>
+                <field id="graph_version" translate="label comment" type="text" sortOrder="35" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Graph API Version</label>
+                    <comment>Format vNN.0.</comment>
+                </field>
+                <field id="redirect_uri" translate="label comment" type="text" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Redirect URI</label>
+                    <frontend_model>Digitalway\SocialLogin\Block\Adminhtml\System\Config\RedirectUri</frontend_model>
+                    <comment>Copy it into "Business login settings" → "OAuth redirect URIs". Must be HTTPS.</comment>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

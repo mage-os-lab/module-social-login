@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <digitalway_sociallogin>
+            <general>
+                <enabled>0</enabled>
+            </general>
+            <google>
+                <enabled>0</enabled>
+            </google>
+            <facebook>
+                <enabled>0</enabled>
+                <graph_version>v24.0</graph_version>
+            </facebook>
+            <linkedin>
+                <enabled>0</enabled>
+            </linkedin>
+            <instagram>
+                <enabled>0</enabled>
+                <graph_version>v24.0</graph_version>
+            </instagram>
+        </digitalway_sociallogin>
+    </default>
+</config>
