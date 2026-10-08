@@ -47,7 +47,7 @@ class Callback implements HttpGetActionInterface
 
         $error = (string) $this->request->getParam('error');
         if ($error !== '') {
-            $this->stateManager->discard();
+            $this->stateManager->discard((string) $this->request->getParam('state'), $code);
             $this->logger->info('SocialLogin: sign-in cancelled at the provider', [
                 'provider' => $code,
                 'error' => substr((string) preg_replace('/[^A-Za-z0-9_.-]/', '', $error), 0, 64),

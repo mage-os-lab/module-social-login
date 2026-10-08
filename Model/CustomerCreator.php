@@ -7,6 +7,7 @@ use Magento\Customer\Api\AccountManagementInterface;
 use Magento\Customer\Api\CustomerRepositoryInterface;
 use Magento\Customer\Api\Data\CustomerInterface;
 use Magento\Customer\Api\Data\CustomerInterfaceFactory;
+use Magento\Customer\Model\AccountManagement;
 use Magento\Customer\Model\EmailNotificationInterface;
 use Magento\Framework\Encryption\EncryptorInterface;
 use Magento\Framework\Exception\LocalizedException;
@@ -41,6 +42,12 @@ class CustomerCreator
         $saved = $this->customerRepository->save($this->newCustomer($profile), $passwordHash);
 
         try {
+            if ($this->accountManagement instanceof AccountManagement
+                || method_exists($this->accountManagement, 'changeResetPasswordLinkToken')
+            ) {
+                $this->accountManagement->changeResetPasswordLinkToken($saved, $this->random->getUniqueHash());
+            }
+
             $this->emailNotification->newAccount(
                 $saved,
                 EmailNotificationInterface::NEW_ACCOUNT_EMAIL_REGISTERED_NO_PASSWORD,

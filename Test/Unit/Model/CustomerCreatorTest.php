@@ -9,6 +9,7 @@ use Magento\Customer\Api\AccountManagementInterface;
 use Magento\Customer\Api\CustomerRepositoryInterface;
 use Magento\Customer\Api\Data\CustomerInterface;
 use Magento\Customer\Api\Data\CustomerInterfaceFactory;
+use Magento\Customer\Model\AccountManagement;
 use Magento\Customer\Model\EmailNotificationInterface;
 use Magento\Framework\Encryption\EncryptorInterface;
 use Magento\Framework\Exception\MailException;
@@ -25,7 +26,7 @@ class CustomerCreatorTest extends TestCase
 {
     private CustomerInterface&MockObject $customer;
     private CustomerRepositoryInterface&MockObject $repository;
-    private AccountManagementInterface&MockObject $accountManagement;
+    private AccountManagement&MockObject $accountManagement;
     private EmailNotificationInterface&MockObject $emailNotification;
     private LoggerInterface&MockObject $logger;
     private CustomerCreator $creator;
@@ -46,9 +47,10 @@ class CustomerCreatorTest extends TestCase
         $encryptor->method('getHash')->willReturn('HASH');
         $random = $this->createMock(Random::class);
         $random->method('getRandomString')->willReturn('random-password');
+        $random->method('getUniqueHash')->willReturn('reset-token-hash');
 
         $this->repository = $this->createMock(CustomerRepositoryInterface::class);
-        $this->accountManagement = $this->createMock(AccountManagementInterface::class);
+        $this->accountManagement = $this->createMock(AccountManagement::class);
         $this->emailNotification = $this->createMock(EmailNotificationInterface::class);
         $this->logger = $this->createMock(LoggerInterface::class);
 
@@ -69,6 +71,8 @@ class CustomerCreatorTest extends TestCase
         $this->expectCustomerData();
         $saved = $this->savedCustomer();
         $this->repository->expects(self::once())->method('save')->with($this->customer, 'HASH')->willReturn($saved);
+        $this->accountManagement->expects(self::once())->method('changeResetPasswordLinkToken')
+            ->with($saved, 'reset-token-hash');
         $this->emailNotification->expects(self::once())->method('newAccount')
             ->with($saved, EmailNotificationInterface::NEW_ACCOUNT_EMAIL_REGISTERED_NO_PASSWORD, '', 1);
         $this->accountManagement->expects(self::never())->method('createAccount');

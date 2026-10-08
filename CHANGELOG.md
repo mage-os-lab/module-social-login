@@ -4,6 +4,13 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/)
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.2.1] - 2026-10-08
+### Fixed
+- **Checkout popup referer padding**: accepted Magento's tilde (`~`) base64 padding in the referer allowlist so checkout destination is preserved after social sign-in (Fixes #1).
+- **Welcome email password setup link**: generated password reset token (`rp_token`) prior to sending the new account welcome email, preventing expired link errors when customers set their initial password (Fixes #2).
+- **Multi-website account sharing scope**: aligned identity lookups and uniqueness with Magento's account sharing configuration (`customer/account_share/scope`), allowing globally shared customers to sign in seamlessly across websites (Fixes #3).
+- **Concurrent OAuth flows in the same session**: stored a bounded map of independent OAuth states in session (`MAX_STATES = 10`, 30-minute TTL) so starting a flow in a second tab does not overwrite or invalidate concurrent flows (Fixes #4).
+
 ## [0.2.0] - 2026-10-08
 ### Changed
 - The admin configuration moved from Stores → Configuration → Digitalway → Social Login to

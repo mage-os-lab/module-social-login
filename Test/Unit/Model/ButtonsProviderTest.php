@@ -59,4 +59,12 @@ class ButtonsProviderTest extends TestCase
 
         self::assertStringNotContainsString('referer', $buttons[0]['url']);
     }
+
+    public function testRefererWithMagentoTildePaddingIsPassedThrough(): void
+    {
+        $encodedWithTilde = 'aHR0cHM6Ly9leGFtcGxlLmNvbS9jaGVja291dC8~';
+        $buttons = $this->buttonsProvider->getButtons($encodedWithTilde);
+
+        self::assertStringContainsString('referer=' . urlencode($encodedWithTilde), $buttons[0]['url']);
+    }
 }

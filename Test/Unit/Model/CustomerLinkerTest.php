@@ -110,7 +110,7 @@ class CustomerLinkerTest extends TestCase
 
     public function testLinkRefusesSecondAccountOfSameProvider(): void
     {
-        $this->identity->method('hasProvider')->with(7, 'google')->willReturn(true);
+        $this->identity->method('hasProvider')->with(7, 'google', self::WEBSITE_ID)->willReturn(true);
         $this->identity->expects(self::never())->method('link');
 
         $this->expectException(LocalizedException::class);

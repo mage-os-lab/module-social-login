@@ -59,7 +59,7 @@ class CustomerLinker
      */
     public function link(int $customerId, Profile $profile): void
     {
-        if ($this->identity->hasProvider($customerId, $profile->provider)) {
+        if ($this->identity->hasProvider($customerId, $profile->provider, $this->websiteId())) {
             throw new LocalizedException(__(
                 'Your account is already linked to another profile on this network. Sign in with that profile or with your email and password.'
             ));

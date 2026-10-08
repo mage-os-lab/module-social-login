@@ -11,7 +11,7 @@ use Magento\Framework\View\Asset\Repository as AssetRepository;
  */
 class ButtonsProvider
 {
-    private const REFERER_PATTERN = '/^[A-Za-z0-9\-_,]+$/';
+    private const REFERER_PATTERN = '/^[A-Za-z0-9\-_,~]+$/';
 
     public function __construct(
         private readonly ProviderPool $providerPool,
