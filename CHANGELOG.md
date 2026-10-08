@@ -4,6 +4,19 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/)
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.2.0] - 2026-10-08
+### Changed
+- The admin configuration moved from Stores → Configuration → Digitalway → Social Login to
+  **Stores → Configuration → Customers → Social Login**. The configuration paths are unchanged,
+  so saved settings are kept.
+- Coding standards compliance: removed `final` keywords from models and test classes to comply with `Magento2.Classes.FinalImplementation`.
+
+### Added
+- Added `Magento_Backend` and `Magento_Config` to `<sequence>` in `etc/module.xml`.
+- Security policy (`SECURITY.md`) and GitHub issue templates.
+- GitHub Actions workflow (graycore `check-extension`): coding standard, `setup:di:compile` and
+  unit tests against the supported Mage-OS versions.
+
 ## [0.1.0] - 2026-09-29
 First public release.
 

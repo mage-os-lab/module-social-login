@@ -2,12 +2,9 @@
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
     <system>
-        <tab id="digitalway" translate="label" sortOrder="200">
-            <label>Digitalway</label>
-        </tab>
         <section id="digitalway_sociallogin" translate="label" sortOrder="120"
                  showInDefault="1" showInWebsite="1" showInStore="0">
-            <tab>digitalway</tab>
+            <tab>customer</tab>
             <label>Social Login</label>
             <resource>Digitalway_SocialLogin::config</resource>
 

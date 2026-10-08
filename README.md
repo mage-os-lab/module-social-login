@@ -21,7 +21,7 @@ bin/magento setup:upgrade
 
 ## Configuration
 
-**Stores → Configuration → Digitalway → Social Login**: enable the module, then set Enabled, ID and Secret
+**Stores → Configuration → Customers → Social Login**: enable the module, then set Enabled, ID and Secret
 for each provider. Copy the read-only **Redirect URI** field into the provider console:
 `https://<domain>/sociallogin/account/callback/provider/<google|facebook|linkedin|instagram>/`.
 

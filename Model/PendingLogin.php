@@ -3,7 +3,7 @@ declare(strict_types=1);
 
 namespace Digitalway\SocialLogin\Model;
 
-final class PendingLogin
+class PendingLogin
 {
     /**
      * @param string|null $claimedEmail email of an EXISTING account entered in the

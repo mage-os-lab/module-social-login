@@ -21,7 +21,7 @@ use PHPUnit\Framework\TestCase;
 use Psr\Log\LoggerInterface;
 
 #[AllowMockObjectsWithoutExpectations]
-final class CustomerCreatorTest extends TestCase
+class CustomerCreatorTest extends TestCase
 {
     private CustomerInterface&MockObject $customer;
     private CustomerRepositoryInterface&MockObject $repository;

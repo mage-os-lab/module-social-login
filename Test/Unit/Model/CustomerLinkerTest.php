@@ -18,7 +18,7 @@ use PHPUnit\Framework\Attributes\AllowMockObjectsWithoutExpectations;
 use PHPUnit\Framework\TestCase;
 
 #[AllowMockObjectsWithoutExpectations]
-final class CustomerLinkerTest extends TestCase
+class CustomerLinkerTest extends TestCase
 {
     private const WEBSITE_ID = 1;
 

@@ -20,7 +20,7 @@ use PHPUnit\Framework\TestCase;
 use Psr\Log\LoggerInterface;
 
 #[AllowMockObjectsWithoutExpectations]
-final class LinkPendingIdentityTest extends TestCase
+class LinkPendingIdentityTest extends TestCase
 {
     private PendingProfileStorage&MockObject $storage;
     private CustomerLinker&MockObject $linker;

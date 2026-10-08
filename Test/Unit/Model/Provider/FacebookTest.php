@@ -13,7 +13,7 @@ use PHPUnit\Framework\Attributes\AllowMockObjectsWithoutExpectations;
 use PHPUnit\Framework\TestCase;
 
 #[AllowMockObjectsWithoutExpectations]
-final class FacebookTest extends TestCase
+class FacebookTest extends TestCase
 {
     private const REDIRECT = 'https://shop.test/sociallogin/account/callback/provider/facebook/';
 

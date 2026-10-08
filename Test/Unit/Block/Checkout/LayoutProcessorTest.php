@@ -12,7 +12,7 @@ use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
 
 #[AllowMockObjectsWithoutExpectations]
-final class LayoutProcessorTest extends TestCase
+class LayoutProcessorTest extends TestCase
 {
     private ButtonsProvider&MockObject $buttonsProvider;
     private LayoutProcessor $processor;

@@ -12,7 +12,7 @@ use PHPUnit\Framework\Attributes\AllowMockObjectsWithoutExpectations;
 use PHPUnit\Framework\TestCase;
 
 #[AllowMockObjectsWithoutExpectations]
-final class LinkedInTest extends TestCase
+class LinkedInTest extends TestCase
 {
     private const REDIRECT = 'https://shop.test/sociallogin/account/callback/provider/linkedin/';
 

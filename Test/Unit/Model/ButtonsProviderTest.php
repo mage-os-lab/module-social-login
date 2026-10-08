@@ -12,7 +12,7 @@ use PHPUnit\Framework\Attributes\AllowMockObjectsWithoutExpectations;
 use PHPUnit\Framework\TestCase;
 
 #[AllowMockObjectsWithoutExpectations]
-final class ButtonsProviderTest extends TestCase
+class ButtonsProviderTest extends TestCase
 {
     private ButtonsProvider $buttonsProvider;
 

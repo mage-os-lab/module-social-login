@@ -7,7 +7,7 @@ namespace Digitalway\SocialLogin\Model;
  * Normalized user profile returned by a social provider.
  * Immutable; stored in session via toArray()/fromArray().
  */
-final class Profile
+class Profile
 {
     public function __construct(
         public readonly string $provider,

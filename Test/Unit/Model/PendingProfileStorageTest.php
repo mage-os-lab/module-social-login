@@ -11,7 +11,7 @@ use PHPUnit\Framework\Attributes\AllowMockObjectsWithoutExpectations;
 use PHPUnit\Framework\TestCase;
 
 #[AllowMockObjectsWithoutExpectations]
-final class PendingProfileStorageTest extends TestCase
+class PendingProfileStorageTest extends TestCase
 {
     private InMemorySessionBag $bag;
     private int $now = 1_000_000;

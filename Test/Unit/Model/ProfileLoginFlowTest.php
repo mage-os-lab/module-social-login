@@ -16,7 +16,7 @@ use PHPUnit\Framework\Attributes\AllowMockObjectsWithoutExpectations;
 use PHPUnit\Framework\TestCase;
 
 #[AllowMockObjectsWithoutExpectations]
-final class ProfileLoginFlowTest extends TestCase
+class ProfileLoginFlowTest extends TestCase
 {
     private CustomerLinker&MockObject $linker;
     private LoginHandler&MockObject $loginHandler;

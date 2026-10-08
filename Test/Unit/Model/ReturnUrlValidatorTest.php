@@ -11,7 +11,7 @@ use PHPUnit\Framework\Attributes\AllowMockObjectsWithoutExpectations;
 use PHPUnit\Framework\TestCase;
 
 #[AllowMockObjectsWithoutExpectations]
-final class ReturnUrlValidatorTest extends TestCase
+class ReturnUrlValidatorTest extends TestCase
 {
     private ReturnUrlValidator $validator;
 

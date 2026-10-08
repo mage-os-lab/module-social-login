@@ -19,7 +19,7 @@ use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
 
 #[AllowMockObjectsWithoutExpectations]
-final class SimulateTest extends TestCase
+class SimulateTest extends TestCase
 {
     private AppState&MockObject $appState;
     private ProfileLoginFlow&MockObject $flow;

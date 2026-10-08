@@ -6,7 +6,7 @@ namespace Digitalway\SocialLogin\Test\Unit\Model;
 use Digitalway\SocialLogin\Model\Profile;
 use PHPUnit\Framework\TestCase;
 
-final class ProfileTest extends TestCase
+class ProfileTest extends TestCase
 {
     public function testArrayRoundTrip(): void
     {

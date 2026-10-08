@@ -5,7 +5,7 @@ namespace Digitalway\SocialLogin\Model;
 
 use Magento\Customer\Api\Data\CustomerInterface;
 
-final class LinkResult
+class LinkResult
 {
     private function __construct(public readonly ?CustomerInterface $customer)
     {

@@ -7,7 +7,7 @@ use Digitalway\SocialLogin\Api\ProviderInterface;
 use Digitalway\SocialLogin\Model\ProviderPool;
 use PHPUnit\Framework\TestCase;
 
-final class ProviderPoolTest extends TestCase
+class ProviderPoolTest extends TestCase
 {
     public function testGetReturnsProviderByCodeOrNull(): void
     {

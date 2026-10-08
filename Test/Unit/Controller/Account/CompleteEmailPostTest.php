@@ -28,7 +28,7 @@ use PHPUnit\Framework\TestCase;
 use Psr\Log\LoggerInterface;
 
 #[AllowMockObjectsWithoutExpectations]
-final class CompleteEmailPostTest extends TestCase
+class CompleteEmailPostTest extends TestCase
 {
     private const FORM_ROUTE = 'sociallogin/account/completeemail';
 

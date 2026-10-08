@@ -11,7 +11,7 @@ use PHPUnit\Framework\Attributes\AllowMockObjectsWithoutExpectations;
 use PHPUnit\Framework\TestCase;
 
 #[AllowMockObjectsWithoutExpectations]
-final class StateManagerTest extends TestCase
+class StateManagerTest extends TestCase
 {
     private InMemorySessionBag $bag;
     private StateManager $manager;

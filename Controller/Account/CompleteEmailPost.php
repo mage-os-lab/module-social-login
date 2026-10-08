@@ -85,8 +85,8 @@ class CompleteEmailPost implements HttpPostActionInterface
             ));
 
             return $redirect->setPath('customer/account/login');
-        } catch (NoSuchEntityException) {
-            // email not in use: create the account
+        } catch (NoSuchEntityException $e) {
+            unset($e); // Customer does not exist; email is available for registration
         } catch (\Throwable $e) {
             return $this->unexpectedError($e, $provider, $label, $redirect);
         }
@@ -100,7 +100,9 @@ class CompleteEmailPost implements HttpPostActionInterface
 
             $status = $this->accountManagement->getConfirmationStatus((int) $customer->getId());
             if ($status === AccountManagementInterface::ACCOUNT_CONFIRMATION_REQUIRED) {
-                $this->messageManager->addSuccessMessage(__('Account created. Check your email to confirm it, then sign in.'));
+                $this->messageManager->addSuccessMessage(
+                    __('Account created. Check your email to confirm it, then sign in.')
+                );
 
                 return $redirect->setPath('customer/account/login');
             }
@@ -126,6 +128,12 @@ class CompleteEmailPost implements HttpPostActionInterface
      * Database or other unexpected errors: generic message instead of an error page.
      * If the account was already created, retrying the form asks for the password
      * sign-in, which then links the identity.
+     *
+     * @param \Throwable $e
+     * @param string $provider
+     * @param string $label
+     * @param Redirect $redirect
+     * @return Redirect
      */
     private function unexpectedError(\Throwable $e, string $provider, string $label, Redirect $redirect): Redirect
     {

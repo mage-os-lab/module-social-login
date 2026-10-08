@@ -12,7 +12,7 @@ use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
 
 #[AllowMockObjectsWithoutExpectations]
-final class IdentityTest extends TestCase
+class IdentityTest extends TestCase
 {
     private AdapterInterface&MockObject $connection;
     private Identity $identity;

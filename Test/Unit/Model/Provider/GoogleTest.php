@@ -14,7 +14,7 @@ use PHPUnit\Framework\Attributes\AllowMockObjectsWithoutExpectations;
 use PHPUnit\Framework\TestCase;
 
 #[AllowMockObjectsWithoutExpectations]
-final class GoogleTest extends TestCase
+class GoogleTest extends TestCase
 {
     private const REDIRECT = 'https://shop.test/sociallogin/account/callback/provider/google/';
 

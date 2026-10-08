@@ -13,7 +13,7 @@ use PHPUnit\Framework\Attributes\AllowMockObjectsWithoutExpectations;
 use PHPUnit\Framework\TestCase;
 
 #[AllowMockObjectsWithoutExpectations]
-final class InstagramTest extends TestCase
+class InstagramTest extends TestCase
 {
     private const REDIRECT = 'https://shop.test/sociallogin/account/callback/provider/instagram/';
 

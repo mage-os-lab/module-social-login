@@ -15,7 +15,7 @@ use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
 
 #[AllowMockObjectsWithoutExpectations]
-final class ConfigTest extends TestCase
+class ConfigTest extends TestCase
 {
     private ScopeConfigInterface&MockObject $scopeConfig;
     private EncryptorInterface&MockObject $encryptor;
