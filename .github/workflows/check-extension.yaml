@@ -6,25 +6,116 @@ on:
   pull_request:
   workflow_dispatch:
 
+# Built from the graycore actions instead of their reusable check-extension workflow:
+# its coding-standard job cannot be disabled, runs `composer require` inside the module
+# (which cannot resolve magento/* from Packagist) and fails on warnings.
+# There is no integration suite yet (no Test/Integration), so that job is omitted.
+
+env:
+  # The default mirror only proxies magento/* packages; the
+  # mage-os/project-community-edition metapackage lives on repo.mage-os.org.
+  MAGENTO_REPOSITORY: https://repo.mage-os.org/
+
 jobs:
   compute-matrix:
     runs-on: ubuntu-latest
     outputs:
       matrix: ${{ steps.supported.outputs.matrix }}
     steps:
-      - uses: actions/checkout@v4
-      - uses: graycoreio/github-actions-magento2/supported-version@v8.9.0
+      - uses: graycoreio/github-actions-magento2/supported-version@v8.11.0
         id: supported
         with:
           project: mage-os
+          include_services: "false"
 
-  # Coding standard, setup:di:compile and the unit suite (Test/Unit) inside a Mage-OS
-  # install, for every supported version.
+  # Magento2 coding standard installed outside the module, so the module's own
+  # requirements are not resolved. Errors fail the job; warnings are only reported.
+  coding-standard:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: "8.3"
+          tools: composer:v2
+          coverage: none
+
+      - name: Install coding standard
+        run: |
+          mkdir -p "$RUNNER_TEMP/phpcs"
+          composer config -g allow-plugins.dealerdirect/phpcodesniffer-composer-installer true
+          composer require -n --working-dir="$RUNNER_TEMP/phpcs" \
+            "magento/magento-coding-standard:*" "magento/php-compatibility-fork"
+
+      - name: Coding standard check
+        run: |
+          "$RUNNER_TEMP/phpcs/vendor/bin/phpcs" --standard=Magento2 \
+            --runtime-set ignore_warnings_on_exit 1 --report=full,summary .
+
+  # setup:di:compile and the unit suite (Test/Unit) inside a Mage-OS install,
+  # for every supported version.
   check-extension:
     needs: compute-matrix
-    uses: graycoreio/github-actions-magento2/.github/workflows/check-extension.yaml@v8.9.0
-    with:
-      matrix: ${{ needs.compute-matrix.outputs.matrix }}
-      # The default mirror only proxies magento/* packages; the
-      # mage-os/project-community-edition metapackage lives on repo.mage-os.org.
-      magento_repository: https://repo.mage-os.org/
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix: ${{ fromJSON(needs.compute-matrix.outputs.matrix) }}
+      fail-fast: false
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: graycoreio/github-actions-magento2/setup-magento@v8.11.0
+        id: setup-magento
+        with:
+          php-version: ${{ matrix.php }}
+          tools: composer:v${{ matrix.composer }}
+          mode: extension
+          magento_version: ${{ matrix.magento }}
+          magento_repository: ${{ env.MAGENTO_REPOSITORY }}
+
+      - name: Add extension repository
+        working-directory: ${{ steps.setup-magento.outputs.path }}
+        run: composer config repositories.local path ${{ github.workspace }}
+
+      - name: Get package name
+        id: package
+        run: echo "name=$(jq -r .name "${{ github.workspace }}/composer.json")" >> "$GITHUB_OUTPUT"
+
+      - name: Require extension
+        working-directory: ${{ steps.setup-magento.outputs.path }}
+        run: composer require "${{ steps.package.outputs.name }}:@dev" --no-install
+
+      - name: Composer update
+        working-directory: ${{ steps.setup-magento.outputs.path }}
+        run: composer update --no-install
+
+      - uses: graycoreio/github-actions-magento2/cache-magento@v8.11.0
+        with:
+          composer_cache_key: ${{ matrix.magento }}
+          working-directory: ${{ steps.setup-magento.outputs.path }}
+
+      - name: Composer install
+        working-directory: ${{ steps.setup-magento.outputs.path }}
+        run: composer install
+        env:
+          COMPOSER_MIRROR_PATH_REPOS: 1
+
+      - uses: graycoreio/github-actions-magento2/setup-di-compile@v8.11.0
+        with:
+          path: ${{ steps.setup-magento.outputs.path }}
+
+      - name: Configure phpunit.xml.dist
+        working-directory: ${{ steps.setup-magento.outputs.path }}
+        run: |
+          cat > /tmp/testsuite.xml << 'EOF'
+                  <testsuite name="Extension_Unit_Tests">
+                      <directory>../../../vendor/${{ steps.package.outputs.name }}/Test/Unit</directory>
+                  </testsuite>
+          EOF
+          sed -i '/<testsuites>/r /tmp/testsuite.xml' dev/tests/unit/phpunit.xml.dist
+          # Allure breaks the unit runner: https://github.com/magento/magento2/issues/36702
+          sed -i '/<extensions>/,/<\/extensions>/d' dev/tests/unit/phpunit.xml.dist
+
+      - name: Run extension unit tests
+        working-directory: ${{ steps.setup-magento.outputs.path }}
+        run: vendor/bin/phpunit -c dev/tests/unit/phpunit.xml.dist --testsuite Extension_Unit_Tests

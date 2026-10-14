@@ -4,6 +4,16 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/)
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.2.2] - 2026-10-14
+### Changed
+- **Bounded Magento dependency ranges**: the six `magento/*` requirements now use caret constraints
+  (e.g. `^103.0.4` instead of `>=103.0.4`), so a future incompatible major cannot satisfy them.
+  Minimum versions are unchanged (Fixes #5, thanks to @szpGiuseppe in #6).
+- **No embedded version in `composer.json`**: the package version now comes from the Git tags only.
+- **CI**: the workflow now targets the current Mage-OS versions (graycore actions v8.11.0). The coding
+  standard check runs with the Magento2 standard installed outside the module: errors fail the build,
+  warnings are reported. The integration test job was removed until the module has an integration suite.
+
 ## [0.2.1] - 2026-10-08
 ### Fixed
 - **Checkout popup referer padding**: accepted Magento's tilde (`~`) base64 padding in the referer allowlist so checkout destination is preserved after social sign-in (Fixes #1).
