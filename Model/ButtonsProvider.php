@@ -3,6 +3,8 @@ declare(strict_types=1);
 
 namespace Digitalway\SocialLogin\Model;
 
+use Digitalway\SocialLogin\Api\ProviderIconInterface;
+use Digitalway\SocialLogin\Api\ProviderInterface;
 use Magento\Framework\UrlInterface;
 use Magento\Framework\View\Asset\Repository as AssetRepository;
 
@@ -12,11 +14,17 @@ use Magento\Framework\View\Asset\Repository as AssetRepository;
 class ButtonsProvider
 {
     private const REFERER_PATTERN = '/^[A-Za-z0-9\-_,~]+$/';
+    private const ABSOLUTE_URL_PATTERN = '#^(https?:)?//#i';
 
+    /**
+     * @param array<string, string> $icons Icon per provider code (asset ID or absolute URL), set in di.xml;
+     *                                     overrides the icon of the provider
+     */
     public function __construct(
         private readonly ProviderPool $providerPool,
         private readonly UrlInterface $url,
-        private readonly AssetRepository $assetRepository
+        private readonly AssetRepository $assetRepository,
+        private readonly array $icons = []
     ) {
     }
 
@@ -39,10 +47,29 @@ class ButtonsProvider
                 'label' => $provider->getLabel(),
                 'text' => (string) __('Continue with %1', $provider->getLabel()),
                 'url' => $this->url->getUrl('sociallogin/account/redirect', $params),
-                'icon' => $this->assetRepository->getUrl('Digitalway_SocialLogin::images/' . $code . '.svg'),
+                'icon' => $this->getIconUrl($provider),
             ];
         }
 
         return $buttons;
+    }
+
+    /**
+     * Icon order: "icons" argument in di.xml, then ProviderIconInterface, then the bundled icon.
+     */
+    private function getIconUrl(ProviderInterface $provider): string
+    {
+        $code = $provider->getCode();
+        $icon = trim((string) ($this->icons[$code] ?? ''));
+        if ($icon === '' && $provider instanceof ProviderIconInterface) {
+            $icon = trim($provider->getIcon());
+        }
+        if ($icon === '') {
+            $icon = 'Digitalway_SocialLogin::images/' . $code . '.svg';
+        }
+
+        return preg_match(self::ABSOLUTE_URL_PATTERN, $icon) === 1
+            ? $icon
+            : $this->assetRepository->getUrl($icon);
     }
 }

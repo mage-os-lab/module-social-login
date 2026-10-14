@@ -58,6 +58,13 @@ for each provider. Copy the read-only **Redirect URI** field into the provider c
 
 Identities are stored in the `digitalway_social_identity` table (one per provider per customer, website-scoped).
 
+## Documentation
+
+- [Configuration](docs/configuration.md): configuration paths, `bin/magento config:set` examples, button icons
+- [How it works](docs/how-it-works.md): sign-in flow, customer linking rules, identity table, security
+- [Adding a custom provider](docs/custom-provider.md): complete example with a new OAuth2 provider
+- [Troubleshooting](docs/troubleshooting.md): common errors from the provider consoles and their fixes
+
 ## Known limitations
 
 - **Instagram**: Business/Creator accounts only, and no email (a Meta limitation since the Basic Display API was retired in December 2024).

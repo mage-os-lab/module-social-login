@@ -4,6 +4,19 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/)
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.3.0] - 2026-10-14
+### Added
+- **Custom button icons**: providers can ship their own icon by implementing the optional
+  `Digitalway\SocialLogin\Api\ProviderIconInterface`, and any icon (bundled providers included)
+  can be replaced without code through the `icons` argument of
+  `Digitalway\SocialLogin\Model\ButtonsProvider` in `di.xml`. Values are view asset IDs or absolute
+  URLs. Previously a provider added by another module could not have an icon.
+- **Documentation** in `docs/`: configuration (paths and `bin/magento config:set` examples), how it
+  works (flow, linking rules, identity table, security), adding a custom provider (complete GitLab
+  example) and troubleshooting.
+- A `context7.json` lets Context7 index the README and the documentation, with usage rules for the
+  module.
+
 ## [0.2.2] - 2026-10-14
 ### Changed
 - **Bounded Magento dependency ranges**: the six `magento/*` requirements now use caret constraints

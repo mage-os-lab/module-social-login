@@ -1,0 +1,38 @@
+{
+  "$schema": "https://context7.com/schema/context7.json",
+  "projectTitle": "Mage-OS Social Login",
+  "description": "Magento 2 / Mage-OS module (Digitalway_SocialLogin) to sign in or register with Google, Facebook, LinkedIn and Instagram via OAuth2, with no external Composer dependencies. Buttons on the login, registration and checkout sign-in pages; social identities linked to customers in a website-scoped table.",
+  "folders": [],
+  "excludeFolders": [
+    ".github",
+    "Api",
+    "Block",
+    "Controller",
+    "etc",
+    "i18n",
+    "Model",
+    "Observer",
+    "Test",
+    "view"
+  ],
+  "excludeFiles": [
+    "CHANGELOG.md",
+    "LICENSE",
+    "SECURITY.md"
+  ],
+  "rules": [
+    "Install with composer config repositories.social-login vcs https://github.com/mage-os-lab/module-social-login, then composer require digitalway/module-social-login and bin/magento setup:upgrade.",
+    "Configure in Stores → Configuration → Customers → Social Login; configuration paths start with digitalway_sociallogin/ (general/enabled, then <provider>/enabled, <provider>/client_id, <provider>/client_secret).",
+    "The redirect URI to register in each provider console is https://<domain>/sociallogin/account/callback/provider/<google|facebook|linkedin|instagram>/.",
+    "Providers are registered in Digitalway\\SocialLogin\\Model\\ProviderPool via di.xml; the item name is the provider code used in URLs, configuration and the digitalway_social_identity table.",
+    "A provider implements Digitalway\\SocialLogin\\Api\\ProviderInterface (usually by extending Model\\Provider\\AbstractProvider and implementing requestProfile()) and returns a normalized Digitalway\\SocialLogin\\Model\\Profile.",
+    "A custom provider also needs a group with the same code in the digitalway_sociallogin section of system.xml; client_secret must use Magento\\Config\\Model\\Config\\Backend\\Encrypted.",
+    "Set Profile::$emailVerified to true only when the provider guarantees the email is verified: it allows linking to an existing customer with the same email.",
+    "Override a button icon in di.xml with the icons argument of Digitalway\\SocialLogin\\Model\\ButtonsProvider: provider code => asset ID (Vendor_Module::images/x.svg) or absolute URL.",
+    "A custom provider ships its own icon by implementing Digitalway\\SocialLogin\\Api\\ProviderIconInterface::getIcon(); the di.xml icons argument takes precedence.",
+    "A provider is shown only when the module is enabled, the provider is enabled and both client ID and secret are set.",
+    "Customers are never linked automatically on an unverified or missing email: the customer completes a form, and an existing account must sign in with its password before the social profile is linked.",
+    "Facebook and Instagram use a configurable Graph API version (graph_version, default v24.0) and accept HTTPS redirect URIs only.",
+    "Instagram supports Business/Creator accounts only and returns no email."
+  ]
+}
