@@ -1,5 +1,5 @@
 {
-    "name": "digitalway/module-social-login",
+    "name": "mage-os-lab/module-social-login",
     "description": "Social login (Google, Facebook, LinkedIn, Instagram) for Magento 2 / Mage-OS",
     "type": "magento2-module",
     "license": "MIT",
@@ -20,10 +20,13 @@
         "magento/module-customer": "^103.0.4",
         "magento/module-store": "^101.1.4"
     },
+    "replace": {
+        "digitalway/module-social-login": "*"
+    },
     "autoload": {
         "files": ["registration.php"],
         "psr-4": {
-            "Digitalway\\SocialLogin\\": ""
+            "MageOS\\SocialLogin\\": ""
         }
     }
 }

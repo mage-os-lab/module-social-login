@@ -1,15 +1,15 @@
 # Adding a custom provider
 
 Providers are plain classes registered in a pool through `di.xml`. You can add one from your own
-module without touching `Digitalway_SocialLogin`. This guide adds **GitLab** (OpenID Connect) in a
+module without touching `MageOS_SocialLogin`. This guide adds **GitLab** (OpenID Connect) in a
 module called `Vendor_GitLabLogin`.
 
 A provider:
 
-- implements `Digitalway\SocialLogin\Api\ProviderInterface`, usually by extending
-  `Digitalway\SocialLogin\Model\Provider\AbstractProvider`;
+- implements `MageOS\SocialLogin\Api\ProviderInterface`, usually by extending
+  `MageOS\SocialLogin\Model\Provider\AbstractProvider`;
 - builds the authorization URL, exchanges the code for a token and reads the user profile;
-- returns a normalized `Digitalway\SocialLogin\Model\Profile`.
+- returns a normalized `MageOS\SocialLogin\Model\Profile`.
 
 Everything else (state/CSRF protection, return URL, customer linking and creation, the email
 completion form, sign-in) is handled by the module.
@@ -24,7 +24,7 @@ completion form, sign-in) is handled by the module.
         xsi:noNamespaceSchemaLocation="urn:magento:framework:Module/etc/module.xsd">
     <module name="Vendor_GitLabLogin">
         <sequence>
-            <module name="Digitalway_SocialLogin"/>
+            <module name="MageOS_SocialLogin"/>
         </sequence>
     </module>
 </config>
@@ -40,9 +40,9 @@ declare(strict_types=1);
 
 namespace Vendor\GitLabLogin\Model\Provider;
 
-use Digitalway\SocialLogin\Api\ProviderIconInterface;
-use Digitalway\SocialLogin\Model\Profile;
-use Digitalway\SocialLogin\Model\Provider\AbstractProvider;
+use MageOS\SocialLogin\Api\ProviderIconInterface;
+use MageOS\SocialLogin\Model\Profile;
+use MageOS\SocialLogin\Model\Provider\AbstractProvider;
 
 class GitLab extends AbstractProvider implements ProviderIconInterface
 {
@@ -123,7 +123,7 @@ What the pieces do:
 Helpers inherited from `AbstractProvider`: `clientId()`, `clientSecret()` (decrypted),
 `redirectUri()`, `buildUrl()`, `requireAccessToken()`, `requireId()`, `stringValue()`,
 `emailValue()`, `isTrue()`, `splitName()`. The injected `$this->http`
-(`Digitalway\SocialLogin\Model\Http\HttpClient`) offers `postForm()` and `get()` with JSON
+(`MageOS\SocialLogin\Model\Http\HttpClient`) offers `postForm()` and `get()` with JSON
 decoding, timeouts and TLS verification.
 
 ### The Profile
@@ -152,7 +152,7 @@ complete their details instead (see [How it works](how-it-works.md)).
 <?xml version="1.0"?>
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
-    <type name="Digitalway\SocialLogin\Model\ProviderPool">
+    <type name="MageOS\SocialLogin\Model\ProviderPool">
         <arguments>
             <argument name="providers" xsi:type="array">
                 <item name="gitlab" xsi:type="object">Vendor\GitLabLogin\Model\Provider\GitLab</item>
@@ -166,7 +166,7 @@ The item name must be equal to `getCode()`. Buttons are shown in the order of th
 
 ## 4. Admin configuration
 
-The module reads `digitalway_sociallogin/<code>/enabled`, `client_id` and `client_secret`. Add a
+The module reads `mageos_sociallogin/<code>/enabled`, `client_id` and `client_secret`. Add a
 group with the same code to the existing section.
 
 `app/code/Vendor/GitLabLogin/etc/adminhtml/system.xml`:
@@ -176,7 +176,7 @@ group with the same code to the existing section.
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
     <system>
-        <section id="digitalway_sociallogin">
+        <section id="mageos_sociallogin">
             <group id="gitlab" translate="label" sortOrder="60" showInDefault="1" showInWebsite="1" showInStore="0">
                 <label>GitLab</label>
                 <field id="enabled" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="0">
@@ -192,7 +192,7 @@ group with the same code to the existing section.
                 </field>
                 <field id="redirect_uri" translate="label" type="text" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="0">
                     <label>Redirect URI</label>
-                    <frontend_model>Digitalway\SocialLogin\Block\Adminhtml\System\Config\RedirectUri</frontend_model>
+                    <frontend_model>MageOS\SocialLogin\Block\Adminhtml\System\Config\RedirectUri</frontend_model>
                 </field>
             </group>
         </section>
@@ -208,7 +208,7 @@ it. The `RedirectUri` frontend model shows the callback URL to copy into the pro
 
 Put the icon in `app/code/Vendor/GitLabLogin/view/frontend/web/images/gitlab.svg` and return its
 asset ID from `getIcon()`, as in the class above. Without `ProviderIconInterface` (or with an
-empty value) the module looks for `Digitalway_SocialLogin::images/<code>.svg`, which does not exist
+empty value) the module looks for `MageOS_SocialLogin::images/<code>.svg`, which does not exist
 for custom providers. The icon can also be set or overridden in `di.xml`, see
 [Configuration → Button icons](configuration.md#button-icons).
 
@@ -217,9 +217,9 @@ for custom providers. The icon can also be set or overridden in `di.xml`, see
 ```bash
 bin/magento module:enable Vendor_GitLabLogin
 bin/magento setup:upgrade
-bin/magento config:set digitalway_sociallogin/gitlab/enabled 1
-bin/magento config:set digitalway_sociallogin/gitlab/client_id "..."
-bin/magento config:set digitalway_sociallogin/gitlab/client_secret "..."
+bin/magento config:set mageos_sociallogin/gitlab/enabled 1
+bin/magento config:set mageos_sociallogin/gitlab/client_id "..."
+bin/magento config:set mageos_sociallogin/gitlab/client_secret "..."
 bin/magento cache:flush
 ```
 
@@ -232,7 +232,7 @@ To change the behaviour of a bundled provider (e.g. extra scopes), extend its cl
 the pool item with the same name:
 
 ```xml
-<type name="Digitalway\SocialLogin\Model\ProviderPool">
+<type name="MageOS\SocialLogin\Model\ProviderPool">
     <arguments>
         <argument name="providers" xsi:type="array">
             <item name="google" xsi:type="object">Vendor\Module\Model\Provider\Google</item>

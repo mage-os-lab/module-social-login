@@ -2,7 +2,7 @@
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
     <default>
-        <digitalway_sociallogin>
+        <mageos_sociallogin>
             <general>
                 <enabled>0</enabled>
             </general>
@@ -20,6 +20,6 @@
                 <enabled>0</enabled>
                 <graph_version>v24.0</graph_version>
             </instagram>
-        </digitalway_sociallogin>
+        </mageos_sociallogin>
     </default>
 </config>

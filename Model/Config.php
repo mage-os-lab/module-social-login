@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace Digitalway\SocialLogin\Model;
+namespace MageOS\SocialLogin\Model;
 
 use Magento\Framework\App\Config\ScopeConfigInterface;
 use Magento\Framework\Encryption\EncryptorInterface;
@@ -11,7 +11,7 @@ use Magento\Store\Model\StoreManagerInterface;
 
 class Config
 {
-    public const SECTION = 'digitalway_sociallogin';
+    public const SECTION = 'mageos_sociallogin';
     public const CALLBACK_PATH = 'sociallogin/account/callback/provider/';
     public const DEFAULT_GRAPH_VERSION = 'v24.0';
 

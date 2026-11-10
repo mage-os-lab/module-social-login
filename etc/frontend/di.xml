@@ -4,7 +4,7 @@
     <type name="Magento\Checkout\Block\Onepage">
         <arguments>
             <argument name="layoutProcessors" xsi:type="array">
-                <item name="digitalwaySocialLogin" xsi:type="object">Digitalway\SocialLogin\Block\Checkout\LayoutProcessor</item>
+                <item name="mageosSocialLogin" xsi:type="object">MageOS\SocialLogin\Block\Checkout\LayoutProcessor</item>
             </argument>
         </arguments>
     </type>

@@ -1,11 +1,11 @@
 <?php
 declare(strict_types=1);
 
-namespace Digitalway\SocialLogin\Controller\Dev;
+namespace MageOS\SocialLogin\Controller\Dev;
 
-use Digitalway\SocialLogin\Model\Profile;
-use Digitalway\SocialLogin\Model\ProfileLoginFlow;
-use Digitalway\SocialLogin\Model\ReturnUrlValidator;
+use MageOS\SocialLogin\Model\Profile;
+use MageOS\SocialLogin\Model\ProfileLoginFlow;
+use MageOS\SocialLogin\Model\ReturnUrlValidator;
 use Magento\Framework\App\Action\HttpGetActionInterface;
 use Magento\Framework\App\RequestInterface;
 use Magento\Framework\App\State as AppState;

@@ -1,10 +1,10 @@
 <?php
 declare(strict_types=1);
 
-namespace Digitalway\SocialLogin\Test\Unit\Block\Checkout;
+namespace MageOS\SocialLogin\Test\Unit\Block\Checkout;
 
-use Digitalway\SocialLogin\Block\Checkout\LayoutProcessor;
-use Digitalway\SocialLogin\Model\ButtonsProvider;
+use MageOS\SocialLogin\Block\Checkout\LayoutProcessor;
+use MageOS\SocialLogin\Model\ButtonsProvider;
 use Magento\Framework\Url\EncoderInterface;
 use Magento\Framework\UrlInterface;
 use PHPUnit\Framework\Attributes\AllowMockObjectsWithoutExpectations;
@@ -36,7 +36,7 @@ class LayoutProcessorTest extends TestCase
         $result = $this->processor->process($this->jsLayout());
 
         $component = $result['components']['checkout']['children']['authentication']['children']['social-login'];
-        self::assertSame('Digitalway_SocialLogin/js/view/social-buttons', $component['component']);
+        self::assertSame('MageOS_SocialLogin/js/view/social-buttons', $component['component']);
         self::assertSame('before', $component['displayArea']);
         self::assertSame($buttons, $component['config']['buttons']);
     }

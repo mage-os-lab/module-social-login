@@ -3,9 +3,9 @@
       xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
     <body>
         <referenceContainer name="content">
-            <block class="Digitalway\SocialLogin\Block\CompleteEmail"
-                   name="digitalway.sociallogin.complete.email"
-                   template="Digitalway_SocialLogin::complete_email.phtml"
+            <block class="MageOS\SocialLogin\Block\CompleteEmail"
+                   name="mageos.sociallogin.complete.email"
+                   template="MageOS_SocialLogin::complete_email.phtml"
                    cacheable="false"/>
         </referenceContainer>
     </body>

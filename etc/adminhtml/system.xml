@@ -2,11 +2,11 @@
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
     <system>
-        <section id="digitalway_sociallogin" translate="label" sortOrder="120"
+        <section id="mageos_sociallogin" translate="label" sortOrder="120"
                  showInDefault="1" showInWebsite="1" showInStore="0">
             <tab>customer</tab>
             <label>Social Login</label>
-            <resource>Digitalway_SocialLogin::config</resource>
+            <resource>MageOS_SocialLogin::config</resource>
 
             <group id="general" translate="label" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="0">
                 <label>General Settings</label>
@@ -32,7 +32,7 @@
                 </field>
                 <field id="redirect_uri" translate="label comment" type="text" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="0">
                     <label>Redirect URI</label>
-                    <frontend_model>Digitalway\SocialLogin\Block\Adminhtml\System\Config\RedirectUri</frontend_model>
+                    <frontend_model>MageOS\SocialLogin\Block\Adminhtml\System\Config\RedirectUri</frontend_model>
                     <comment>Copy it into "Authorized redirect URIs".</comment>
                 </field>
             </group>
@@ -57,7 +57,7 @@
                 </field>
                 <field id="redirect_uri" translate="label comment" type="text" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="0">
                     <label>Redirect URI</label>
-                    <frontend_model>Digitalway\SocialLogin\Block\Adminhtml\System\Config\RedirectUri</frontend_model>
+                    <frontend_model>MageOS\SocialLogin\Block\Adminhtml\System\Config\RedirectUri</frontend_model>
                     <comment>Copy it into Facebook Login → Settings → "Valid OAuth Redirect URIs".</comment>
                 </field>
             </group>
@@ -78,7 +78,7 @@
                 </field>
                 <field id="redirect_uri" translate="label comment" type="text" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="0">
                     <label>Redirect URI</label>
-                    <frontend_model>Digitalway\SocialLogin\Block\Adminhtml\System\Config\RedirectUri</frontend_model>
+                    <frontend_model>MageOS\SocialLogin\Block\Adminhtml\System\Config\RedirectUri</frontend_model>
                     <comment>Copy it into Auth → "Authorized redirect URLs for your app".</comment>
                 </field>
             </group>
@@ -104,7 +104,7 @@
                 </field>
                 <field id="redirect_uri" translate="label comment" type="text" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="0">
                     <label>Redirect URI</label>
-                    <frontend_model>Digitalway\SocialLogin\Block\Adminhtml\System\Config\RedirectUri</frontend_model>
+                    <frontend_model>MageOS\SocialLogin\Block\Adminhtml\System\Config\RedirectUri</frontend_model>
                     <comment>Copy it into "Business login settings" → "OAuth redirect URIs". Must be HTTPS.</comment>
                 </field>
             </group>

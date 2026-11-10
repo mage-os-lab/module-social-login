@@ -1,9 +1,9 @@
 <?php
 declare(strict_types=1);
 
-namespace Digitalway\SocialLogin\Api;
+namespace MageOS\SocialLogin\Api;
 
-use Digitalway\SocialLogin\Model\Profile;
+use MageOS\SocialLogin\Model\Profile;
 use Magento\Framework\Exception\LocalizedException;
 
 interface ProviderInterface

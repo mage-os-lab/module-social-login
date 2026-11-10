@@ -3,9 +3,9 @@
       xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
     <body>
         <referenceContainer name="form.additional.info">
-            <block class="Digitalway\SocialLogin\Block\Buttons"
-                   name="digitalway.sociallogin.buttons"
-                   template="Digitalway_SocialLogin::buttons.phtml"
+            <block class="MageOS\SocialLogin\Block\Buttons"
+                   name="mageos.sociallogin.buttons"
+                   template="MageOS_SocialLogin::buttons.phtml"
                    before="-"/>
         </referenceContainer>
     </body>

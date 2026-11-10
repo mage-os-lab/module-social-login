@@ -3,7 +3,7 @@
         xsi:noNamespaceSchemaLocation="urn:magento:framework:App/etc/routes.xsd">
     <router id="standard">
         <route id="sociallogin" frontName="sociallogin">
-            <module name="Digitalway_SocialLogin"/>
+            <module name="MageOS_SocialLogin"/>
         </route>
     </router>
 </config>

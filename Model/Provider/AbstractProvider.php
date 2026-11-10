@@ -1,13 +1,13 @@
 <?php
 declare(strict_types=1);
 
-namespace Digitalway\SocialLogin\Model\Provider;
+namespace MageOS\SocialLogin\Model\Provider;
 
-use Digitalway\SocialLogin\Api\ProviderInterface;
-use Digitalway\SocialLogin\Model\Config;
-use Digitalway\SocialLogin\Model\Http\HttpClient;
-use Digitalway\SocialLogin\Model\Http\HttpException;
-use Digitalway\SocialLogin\Model\Profile;
+use MageOS\SocialLogin\Api\ProviderInterface;
+use MageOS\SocialLogin\Model\Config;
+use MageOS\SocialLogin\Model\Http\HttpClient;
+use MageOS\SocialLogin\Model\Http\HttpException;
+use MageOS\SocialLogin\Model\Profile;
 use Magento\Framework\Exception\LocalizedException;
 
 abstract class AbstractProvider implements ProviderInterface

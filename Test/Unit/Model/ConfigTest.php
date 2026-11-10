@@ -1,9 +1,9 @@
 <?php
 declare(strict_types=1);
 
-namespace Digitalway\SocialLogin\Test\Unit\Model;
+namespace MageOS\SocialLogin\Test\Unit\Model;
 
-use Digitalway\SocialLogin\Model\Config;
+use MageOS\SocialLogin\Model\Config;
 use Magento\Framework\App\Config\ScopeConfigInterface;
 use Magento\Framework\Encryption\EncryptorInterface;
 use Magento\Framework\UrlInterface;
@@ -33,13 +33,13 @@ class ConfigTest extends TestCase
     public function testProviderFlagsAndCredentialsAreReadPerProvider(): void
     {
         $flags = [
-            'digitalway_sociallogin/general/enabled' => true,
-            'digitalway_sociallogin/google/enabled' => true,
-            'digitalway_sociallogin/facebook/enabled' => false,
+            'mageos_sociallogin/general/enabled' => true,
+            'mageos_sociallogin/google/enabled' => true,
+            'mageos_sociallogin/facebook/enabled' => false,
         ];
         $values = [
-            'digitalway_sociallogin/google/client_id' => '  cid  ',
-            'digitalway_sociallogin/google/client_secret' => 'ENCRYPTED',
+            'mageos_sociallogin/google/client_id' => '  cid  ',
+            'mageos_sociallogin/google/client_secret' => 'ENCRYPTED',
         ];
         $this->scopeConfig->method('isSetFlag')->willReturnCallback(
             static function (string $path, string $scope) use ($flags): bool {

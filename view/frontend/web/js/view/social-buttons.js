@@ -3,7 +3,7 @@ define(['uiComponent'], function (Component) {
 
     return Component.extend({
         defaults: {
-            template: 'Digitalway_SocialLogin/social-buttons',
+            template: 'MageOS_SocialLogin/social-buttons',
             buttons: []
         }
     });

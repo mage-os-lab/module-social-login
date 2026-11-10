@@ -4,6 +4,19 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/)
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [Unreleased]
+### Changed
+- **BREAKING: `digitalway` renamed to `mageos`** (#7). Composer package `mage-os-lab/module-social-login`
+  (with `replace` of `digitalway/module-social-login`), module `MageOS_SocialLogin`, namespace
+  `MageOS\SocialLogin`, config section `mageos_sociallogin`, table `mageos_social_identity`, layout
+  block, observer and ACL ids. The licence and author attribution are unchanged.
+- Upgrade: a data patch copies the saved configuration (`digitalway_sociallogin/*`, secrets included)
+  and the linked identities to the new names; the old table is left in place and can be dropped
+  once verified. After upgrading, replace `Digitalway_SocialLogin` with `MageOS_SocialLogin` in
+  `app/etc/config.php` (run `bin/magento module:enable MageOS_SocialLogin`, then `setup:upgrade`).
+- Modules implementing `ProviderInterface` / `ProviderIconInterface` must switch to the
+  `MageOS\SocialLogin\Api` namespace.
+
 ## [0.3.0] - 2026-10-14
 ### Added
 - **Custom button icons**: providers can ship their own icon by implementing the optional

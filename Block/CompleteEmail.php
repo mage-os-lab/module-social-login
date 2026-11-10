@@ -1,11 +1,11 @@
 <?php
 declare(strict_types=1);
 
-namespace Digitalway\SocialLogin\Block;
+namespace MageOS\SocialLogin\Block;
 
-use Digitalway\SocialLogin\Model\PendingLogin;
-use Digitalway\SocialLogin\Model\PendingProfileStorage;
-use Digitalway\SocialLogin\Model\ProviderPool;
+use MageOS\SocialLogin\Model\PendingLogin;
+use MageOS\SocialLogin\Model\PendingProfileStorage;
+use MageOS\SocialLogin\Model\ProviderPool;
 use Magento\Framework\View\Element\Template;
 use Magento\Framework\View\Element\Template\Context;
 

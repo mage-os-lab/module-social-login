@@ -1,9 +1,9 @@
 <?php
 declare(strict_types=1);
 
-namespace Digitalway\SocialLogin\Controller\Account;
+namespace MageOS\SocialLogin\Controller\Account;
 
-use Digitalway\SocialLogin\Model\PendingProfileStorage;
+use MageOS\SocialLogin\Model\PendingProfileStorage;
 use Magento\Framework\App\Action\HttpGetActionInterface;
 use Magento\Framework\Controller\Result\RedirectFactory;
 use Magento\Framework\Controller\ResultInterface;

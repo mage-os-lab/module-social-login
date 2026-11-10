@@ -1,9 +1,9 @@
 <?php
 declare(strict_types=1);
 
-namespace Digitalway\SocialLogin\Test\Unit\Fake;
+namespace MageOS\SocialLogin\Test\Unit\Fake;
 
-use Digitalway\SocialLogin\Model\SessionBag;
+use MageOS\SocialLogin\Model\SessionBag;
 
 /**
  * In-memory SessionBag for tests (does not call the parent constructor).

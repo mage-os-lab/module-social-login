@@ -1,11 +1,11 @@
 <?php
 declare(strict_types=1);
 
-namespace Digitalway\SocialLogin\Controller\Account;
+namespace MageOS\SocialLogin\Controller\Account;
 
-use Digitalway\SocialLogin\Model\ProviderPool;
-use Digitalway\SocialLogin\Model\ReturnUrlValidator;
-use Digitalway\SocialLogin\Model\StateManager;
+use MageOS\SocialLogin\Model\ProviderPool;
+use MageOS\SocialLogin\Model\ReturnUrlValidator;
+use MageOS\SocialLogin\Model\StateManager;
 use Magento\Customer\Model\Session as CustomerSession;
 use Magento\Framework\App\Action\HttpGetActionInterface;
 use Magento\Framework\App\RequestInterface;
