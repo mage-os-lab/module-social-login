@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace Digitalway\SocialLogin\Model\Http;
+namespace MageOS\SocialLogin\Model\Http;
 
 /**
  * Minimal HTTP client for the providers' OAuth2 endpoints (JSON responses).

@@ -1,9 +1,9 @@
 <?php
 declare(strict_types=1);
 
-namespace Digitalway\SocialLogin\Test\Unit\Model\ResourceModel;
+namespace MageOS\SocialLogin\Test\Unit\Model\ResourceModel;
 
-use Digitalway\SocialLogin\Model\ResourceModel\Identity;
+use MageOS\SocialLogin\Model\ResourceModel\Identity;
 use Magento\Customer\Model\Config\Share as CustomerShareConfig;
 use Magento\Framework\DB\Adapter\AdapterInterface;
 use Magento\Framework\DB\Adapter\DuplicateException;

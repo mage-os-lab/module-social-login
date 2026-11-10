@@ -1,9 +1,9 @@
 <?php
 declare(strict_types=1);
 
-namespace Digitalway\SocialLogin\Block\Adminhtml\System\Config;
+namespace MageOS\SocialLogin\Block\Adminhtml\System\Config;
 
-use Digitalway\SocialLogin\Model\Config;
+use MageOS\SocialLogin\Model\Config;
 use Magento\Backend\Block\Template\Context;
 use Magento\Config\Block\System\Config\Form\Field;
 use Magento\Framework\Data\Form\Element\AbstractElement;

@@ -7,12 +7,12 @@ scope. They can also be set from the command line with `bin/magento config:set`.
 
 | Path | Description |
 |---|---|
-| `digitalway_sociallogin/general/enabled` | Master switch for the module (default `0`) |
-| `digitalway_sociallogin/<provider>/enabled` | Provider switch (default `0`) |
-| `digitalway_sociallogin/<provider>/client_id` | Client / App ID from the provider console |
-| `digitalway_sociallogin/<provider>/client_secret` | Client / App secret, stored encrypted |
-| `digitalway_sociallogin/facebook/graph_version` | Graph API version for Facebook (default `v24.0`) |
-| `digitalway_sociallogin/instagram/graph_version` | Graph API version for Instagram (default `v24.0`) |
+| `mageos_sociallogin/general/enabled` | Master switch for the module (default `0`) |
+| `mageos_sociallogin/<provider>/enabled` | Provider switch (default `0`) |
+| `mageos_sociallogin/<provider>/client_id` | Client / App ID from the provider console |
+| `mageos_sociallogin/<provider>/client_secret` | Client / App secret, stored encrypted |
+| `mageos_sociallogin/facebook/graph_version` | Graph API version for Facebook (default `v24.0`) |
+| `mageos_sociallogin/instagram/graph_version` | Graph API version for Instagram (default `v24.0`) |
 
 `<provider>` is one of `google`, `facebook`, `linkedin`, `instagram`, or the code of a
 [custom provider](custom-provider.md).
@@ -25,10 +25,10 @@ is enabled, and both the client ID and the client secret are set.
 Enable the module and Google at default scope:
 
 ```bash
-bin/magento config:set digitalway_sociallogin/general/enabled 1
-bin/magento config:set digitalway_sociallogin/google/enabled 1
-bin/magento config:set digitalway_sociallogin/google/client_id "1234567890-abc.apps.googleusercontent.com"
-bin/magento config:set digitalway_sociallogin/google/client_secret "GOCSPX-..."
+bin/magento config:set mageos_sociallogin/general/enabled 1
+bin/magento config:set mageos_sociallogin/google/enabled 1
+bin/magento config:set mageos_sociallogin/google/client_id "1234567890-abc.apps.googleusercontent.com"
+bin/magento config:set mageos_sociallogin/google/client_secret "GOCSPX-..."
 bin/magento cache:flush
 ```
 
@@ -39,14 +39,14 @@ decrypts the value before using it.
 Different credentials per website (for example a separate Facebook app per domain):
 
 ```bash
-bin/magento config:set --scope=websites --scope-code=base digitalway_sociallogin/facebook/client_id "111111111111111"
-bin/magento config:set --scope=websites --scope-code=base digitalway_sociallogin/facebook/client_secret "..."
+bin/magento config:set --scope=websites --scope-code=base mageos_sociallogin/facebook/client_id "111111111111111"
+bin/magento config:set --scope=websites --scope-code=base mageos_sociallogin/facebook/client_secret "..."
 ```
 
 Pin a different Graph API version for Facebook:
 
 ```bash
-bin/magento config:set digitalway_sociallogin/facebook/graph_version v24.0
+bin/magento config:set mageos_sociallogin/facebook/graph_version v24.0
 ```
 
 To keep the values out of the database (e.g. per environment), use `--lock-env` to write them to
@@ -69,12 +69,12 @@ codes in URLs, each store view has a different URI: register all of them.
 
 ## Button icons
 
-The buttons use the bundled icons `Digitalway_SocialLogin::images/<provider>.svg`. To replace one
+The buttons use the bundled icons `MageOS_SocialLogin::images/<provider>.svg`. To replace one
 (e.g. a monochrome icon for your theme), set the `icons` argument of `ButtonsProvider` in your own
 module's `etc/frontend/di.xml`:
 
 ```xml
-<type name="Digitalway\SocialLogin\Model\ButtonsProvider">
+<type name="MageOS\SocialLogin\Model\ButtonsProvider">
     <arguments>
         <argument name="icons" xsi:type="array">
             <item name="google" xsi:type="string">Vendor_Theme::images/google-mono.svg</item>

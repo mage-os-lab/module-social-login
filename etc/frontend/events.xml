@@ -2,7 +2,7 @@
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:noNamespaceSchemaLocation="urn:magento:framework:Event/etc/events.xsd">
     <event name="customer_data_object_login">
-        <observer name="digitalway_sociallogin_link_pending_identity"
-                  instance="Digitalway\SocialLogin\Observer\LinkPendingIdentity"/>
+        <observer name="mageos_sociallogin_link_pending_identity"
+                  instance="MageOS\SocialLogin\Observer\LinkPendingIdentity"/>
     </event>
 </config>

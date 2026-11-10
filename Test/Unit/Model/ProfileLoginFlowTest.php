@@ -1,14 +1,14 @@
 <?php
 declare(strict_types=1);
 
-namespace Digitalway\SocialLogin\Test\Unit\Model;
+namespace MageOS\SocialLogin\Test\Unit\Model;
 
-use Digitalway\SocialLogin\Model\CustomerLinker;
-use Digitalway\SocialLogin\Model\LinkResult;
-use Digitalway\SocialLogin\Model\LoginHandler;
-use Digitalway\SocialLogin\Model\PendingProfileStorage;
-use Digitalway\SocialLogin\Model\Profile;
-use Digitalway\SocialLogin\Model\ProfileLoginFlow;
+use MageOS\SocialLogin\Model\CustomerLinker;
+use MageOS\SocialLogin\Model\LinkResult;
+use MageOS\SocialLogin\Model\LoginHandler;
+use MageOS\SocialLogin\Model\PendingProfileStorage;
+use MageOS\SocialLogin\Model\Profile;
+use MageOS\SocialLogin\Model\ProfileLoginFlow;
 use Magento\Customer\Api\Data\CustomerInterface;
 use Magento\Framework\UrlInterface;
 use PHPUnit\Framework\MockObject\MockObject;

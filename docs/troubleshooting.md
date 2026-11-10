@@ -6,12 +6,12 @@ Error details are logged in `var/log/system.log` with the `SocialLogin:` prefix;
 
 A button is shown only if **all** of these are set for the current website:
 
-- `digitalway_sociallogin/general/enabled` = 1
-- `digitalway_sociallogin/<provider>/enabled` = 1
+- `mageos_sociallogin/general/enabled` = 1
+- `mageos_sociallogin/<provider>/enabled` = 1
 - client ID **and** client secret of that provider
 
 ```bash
-bin/magento config:show | grep digitalway_sociallogin
+bin/magento config:show | grep mageos_sociallogin
 ```
 
 Then flush the cache (`bin/magento cache:flush`). On the checkout, the buttons are in the
@@ -98,7 +98,7 @@ link in the confirmation email.
 
 The customer already has a different profile of the same provider linked (one profile per
 provider per customer). To link a different one, delete the existing row for that customer and
-provider from `digitalway_social_identity`.
+provider from `mageos_social_identity`.
 
 ## Testing locally
 

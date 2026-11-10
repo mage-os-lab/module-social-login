@@ -1,9 +1,9 @@
 <?php
 declare(strict_types=1);
 
-namespace Digitalway\SocialLogin\Model;
+namespace MageOS\SocialLogin\Model;
 
-use Digitalway\SocialLogin\Api\ProviderInterface;
+use MageOS\SocialLogin\Api\ProviderInterface;
 
 /**
  * Available providers, injected via etc/di.xml (key = provider code).

@@ -1,11 +1,11 @@
 <?php
 declare(strict_types=1);
 
-namespace Digitalway\SocialLogin\Test\Unit\Model;
+namespace MageOS\SocialLogin\Test\Unit\Model;
 
-use Digitalway\SocialLogin\Model\PendingProfileStorage;
-use Digitalway\SocialLogin\Model\Profile;
-use Digitalway\SocialLogin\Test\Unit\Fake\InMemorySessionBag;
+use MageOS\SocialLogin\Model\PendingProfileStorage;
+use MageOS\SocialLogin\Model\Profile;
+use MageOS\SocialLogin\Test\Unit\Fake\InMemorySessionBag;
 use Magento\Framework\Stdlib\DateTime\DateTime;
 use PHPUnit\Framework\Attributes\AllowMockObjectsWithoutExpectations;
 use PHPUnit\Framework\TestCase;

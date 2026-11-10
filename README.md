@@ -1,4 +1,4 @@
-# Digitalway_SocialLogin
+# MageOS_SocialLogin
 
 Magento 2 / Mage-OS module to sign in or register with **Google, Facebook, LinkedIn and Instagram**.
 The buttons appear on the login page, on the registration page and in the checkout sign-in popup.
@@ -12,11 +12,11 @@ The buttons appear on the login page, on the registration page and in the checko
 **With Composer**:
 ```bash
 composer config repositories.social-login vcs https://github.com/mage-os-lab/module-social-login
-composer require digitalway/module-social-login
+composer require mage-os-lab/module-social-login
 bin/magento setup:upgrade
 ```
 
-**In `app/code`**: copy the module files into `app/code/Digitalway/SocialLogin/`, then run `bin/magento setup:upgrade`.
+**In `app/code`**: copy the module files into `app/code/MageOS/SocialLogin/`, then run `bin/magento setup:upgrade`.
 
 
 ## Configuration
@@ -56,7 +56,7 @@ for each provider. Copy the read-only **Redirect URI** field into the provider c
 | Missing (Instagram, Facebook without email) or unverified email | "Complete sign-in" form: email, first name, last name |
 | In the form, email of an existing account | No automatic linking: the customer signs in with their password and only then is the social profile linked |
 
-Identities are stored in the `digitalway_social_identity` table (one per provider per customer, website-scoped).
+Identities are stored in the `mageos_social_identity` table (one per provider per customer, website-scoped).
 
 ## Documentation
 
@@ -77,10 +77,10 @@ Unit tests live in `Test/Unit/` and use the Magento test framework. Run them fro
 Magento / Mage-OS installation where the module is installed:
 
 ```bash
-vendor/bin/phpunit -c dev/tests/unit/phpunit.xml.dist vendor/digitalway/module-social-login/Test/Unit
+vendor/bin/phpunit -c dev/tests/unit/phpunit.xml.dist vendor/mage-os-lab/module-social-login/Test/Unit
 ```
 
-If the module is in `app/code`, the path is `app/code/Digitalway/SocialLogin/Test/Unit`.
+If the module is in `app/code`, the path is `app/code/MageOS/SocialLogin/Test/Unit`.
 
 ## License
 

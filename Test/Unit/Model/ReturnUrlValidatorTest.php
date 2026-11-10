@@ -1,9 +1,9 @@
 <?php
 declare(strict_types=1);
 
-namespace Digitalway\SocialLogin\Test\Unit\Model;
+namespace MageOS\SocialLogin\Test\Unit\Model;
 
-use Digitalway\SocialLogin\Model\ReturnUrlValidator;
+use MageOS\SocialLogin\Model\ReturnUrlValidator;
 use Magento\Framework\Url\DecoderInterface;
 use Magento\Framework\Url\HostChecker;
 use PHPUnit\Framework\Attributes\DataProvider;

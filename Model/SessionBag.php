@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace Digitalway\SocialLogin\Model;
+namespace MageOS\SocialLogin\Model;
 
 use Magento\Customer\Model\Session as CustomerSession;
 
@@ -11,7 +11,7 @@ use Magento\Customer\Model\Session as CustomerSession;
  */
 class SessionBag
 {
-    private const PREFIX = 'digitalway_sociallogin_';
+    private const PREFIX = 'mageos_sociallogin_';
 
     public function __construct(private readonly CustomerSession $session)
     {

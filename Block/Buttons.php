@@ -1,9 +1,9 @@
 <?php
 declare(strict_types=1);
 
-namespace Digitalway\SocialLogin\Block;
+namespace MageOS\SocialLogin\Block;
 
-use Digitalway\SocialLogin\Model\ButtonsProvider;
+use MageOS\SocialLogin\Model\ButtonsProvider;
 use Magento\Framework\View\Element\Template;
 use Magento\Framework\View\Element\Template\Context;
 

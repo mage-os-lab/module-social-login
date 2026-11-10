@@ -1,10 +1,10 @@
 <?php
 declare(strict_types=1);
 
-namespace Digitalway\SocialLogin\Test\Unit\Model;
+namespace MageOS\SocialLogin\Test\Unit\Model;
 
-use Digitalway\SocialLogin\Api\ProviderInterface;
-use Digitalway\SocialLogin\Model\ProviderPool;
+use MageOS\SocialLogin\Api\ProviderInterface;
+use MageOS\SocialLogin\Model\ProviderPool;
 use PHPUnit\Framework\TestCase;
 
 class ProviderPoolTest extends TestCase

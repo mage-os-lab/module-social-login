@@ -1,12 +1,12 @@
 <?php
 declare(strict_types=1);
 
-namespace Digitalway\SocialLogin\Test\Unit\Model;
+namespace MageOS\SocialLogin\Test\Unit\Model;
 
-use Digitalway\SocialLogin\Api\ProviderIconInterface;
-use Digitalway\SocialLogin\Api\ProviderInterface;
-use Digitalway\SocialLogin\Model\ButtonsProvider;
-use Digitalway\SocialLogin\Model\ProviderPool;
+use MageOS\SocialLogin\Api\ProviderIconInterface;
+use MageOS\SocialLogin\Api\ProviderInterface;
+use MageOS\SocialLogin\Model\ButtonsProvider;
+use MageOS\SocialLogin\Model\ProviderPool;
 use Magento\Framework\UrlInterface;
 use Magento\Framework\View\Asset\Repository as AssetRepository;
 use PHPUnit\Framework\Attributes\AllowMockObjectsWithoutExpectations;
@@ -65,7 +65,7 @@ class ButtonsProviderTest extends TestCase
         self::assertSame('google', $buttons[0]['code']);
         self::assertSame('Google', $buttons[0]['label']);
         self::assertSame('https://shop.test/sociallogin/account/redirect?provider=google', $buttons[0]['url']);
-        self::assertSame('https://shop.test/static/Digitalway_SocialLogin::images/google.svg', $buttons[0]['icon']);
+        self::assertSame('https://shop.test/static/MageOS_SocialLogin::images/google.svg', $buttons[0]['icon']);
         self::assertNotSame('', $buttons[0]['text']);
     }
 
@@ -103,7 +103,7 @@ class ButtonsProviderTest extends TestCase
     {
         $buttons = $this->buttonsProvider([$this->providerWithIcon('google', '')])->getButtons();
 
-        self::assertSame('https://shop.test/static/Digitalway_SocialLogin::images/google.svg', $buttons[0]['icon']);
+        self::assertSame('https://shop.test/static/MageOS_SocialLogin::images/google.svg', $buttons[0]['icon']);
     }
 
     public function testConfiguredIconOverridesProviderIcon(): void

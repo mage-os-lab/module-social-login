@@ -60,7 +60,7 @@ customer can later sign in with email and password as well.
 
 ## Identity table
 
-Links are stored in `digitalway_social_identity`:
+Links are stored in `mageos_social_identity`:
 
 | Column | Description |
 |---|---|
@@ -100,8 +100,8 @@ Options**:
 - Customer login page and registration page.
 - Checkout sign-in popup (the customer returns to the checkout after signing in).
 
-The buttons come from `Digitalway\SocialLogin\Model\ButtonsProvider`, which lists the enabled
-providers of `Digitalway\SocialLogin\Model\ProviderPool`.
+The buttons come from `MageOS\SocialLogin\Model\ButtonsProvider`, which lists the enabled
+providers of `MageOS\SocialLogin\Model\ProviderPool`.
 
 ## Logging
 

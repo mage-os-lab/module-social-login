@@ -1,9 +1,9 @@
 <?php
 declare(strict_types=1);
 
-namespace Digitalway\SocialLogin\Block\Checkout;
+namespace MageOS\SocialLogin\Block\Checkout;
 
-use Digitalway\SocialLogin\Model\ButtonsProvider;
+use MageOS\SocialLogin\Model\ButtonsProvider;
 use Magento\Checkout\Block\Checkout\LayoutProcessorInterface;
 use Magento\Framework\Url\EncoderInterface;
 use Magento\Framework\UrlInterface;
@@ -37,7 +37,7 @@ class LayoutProcessor implements LayoutProcessorInterface
         }
 
         $jsLayout['components']['checkout']['children']['authentication']['children']['social-login'] = [
-            'component' => 'Digitalway_SocialLogin/js/view/social-buttons',
+            'component' => 'MageOS_SocialLogin/js/view/social-buttons',
             'displayArea' => 'before',
             'sortOrder' => 10,
             'config' => ['buttons' => $buttons],

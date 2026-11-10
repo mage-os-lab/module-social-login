@@ -1,9 +1,9 @@
 <?php
 declare(strict_types=1);
 
-namespace Digitalway\SocialLogin\Test\Unit\Model;
+namespace MageOS\SocialLogin\Test\Unit\Model;
 
-use Digitalway\SocialLogin\Model\Profile;
+use MageOS\SocialLogin\Model\Profile;
 use PHPUnit\Framework\TestCase;
 
 class ProfileTest extends TestCase

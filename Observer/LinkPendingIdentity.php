@@ -1,11 +1,11 @@
 <?php
 declare(strict_types=1);
 
-namespace Digitalway\SocialLogin\Observer;
+namespace MageOS\SocialLogin\Observer;
 
-use Digitalway\SocialLogin\Model\CustomerLinker;
-use Digitalway\SocialLogin\Model\PendingProfileStorage;
-use Digitalway\SocialLogin\Model\ProviderPool;
+use MageOS\SocialLogin\Model\CustomerLinker;
+use MageOS\SocialLogin\Model\PendingProfileStorage;
+use MageOS\SocialLogin\Model\ProviderPool;
 use Magento\Customer\Api\Data\CustomerInterface;
 use Magento\Framework\Event\Observer;
 use Magento\Framework\Event\ObserverInterface;

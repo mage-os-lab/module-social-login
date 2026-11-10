@@ -1,9 +1,9 @@
 <?php
 declare(strict_types=1);
 
-namespace Digitalway\SocialLogin\Model;
+namespace MageOS\SocialLogin\Model;
 
-use Digitalway\SocialLogin\Model\ResourceModel\Identity;
+use MageOS\SocialLogin\Model\ResourceModel\Identity;
 use Magento\Customer\Api\CustomerRepositoryInterface;
 use Magento\Framework\Exception\LocalizedException;
 use Magento\Framework\Exception\NoSuchEntityException;

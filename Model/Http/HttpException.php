@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace Digitalway\SocialLogin\Model\Http;
+namespace MageOS\SocialLogin\Model\Http;
 
 /**
  * Communication error with a provider. The message never contains

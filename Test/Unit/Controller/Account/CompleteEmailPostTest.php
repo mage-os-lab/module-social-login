@@ -1,17 +1,17 @@
 <?php
 declare(strict_types=1);
 
-namespace Digitalway\SocialLogin\Test\Unit\Controller\Account;
+namespace MageOS\SocialLogin\Test\Unit\Controller\Account;
 
-use Digitalway\SocialLogin\Controller\Account\CompleteEmailPost;
-use Digitalway\SocialLogin\Model\CustomerCreator;
-use Digitalway\SocialLogin\Model\CustomerLinker;
-use Digitalway\SocialLogin\Model\LoginHandler;
-use Digitalway\SocialLogin\Model\PendingLogin;
-use Digitalway\SocialLogin\Model\PendingProfileStorage;
-use Digitalway\SocialLogin\Model\Profile;
-use Digitalway\SocialLogin\Model\ProfileLoginFlow;
-use Digitalway\SocialLogin\Model\ProviderPool;
+use MageOS\SocialLogin\Controller\Account\CompleteEmailPost;
+use MageOS\SocialLogin\Model\CustomerCreator;
+use MageOS\SocialLogin\Model\CustomerLinker;
+use MageOS\SocialLogin\Model\LoginHandler;
+use MageOS\SocialLogin\Model\PendingLogin;
+use MageOS\SocialLogin\Model\PendingProfileStorage;
+use MageOS\SocialLogin\Model\Profile;
+use MageOS\SocialLogin\Model\ProfileLoginFlow;
+use MageOS\SocialLogin\Model\ProviderPool;
 use Magento\Customer\Api\AccountManagementInterface;
 use Magento\Customer\Api\CustomerRepositoryInterface;
 use Magento\Customer\Api\Data\CustomerInterface;

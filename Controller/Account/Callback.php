@@ -1,11 +1,11 @@
 <?php
 declare(strict_types=1);
 
-namespace Digitalway\SocialLogin\Controller\Account;
+namespace MageOS\SocialLogin\Controller\Account;
 
-use Digitalway\SocialLogin\Model\ProfileLoginFlow;
-use Digitalway\SocialLogin\Model\ProviderPool;
-use Digitalway\SocialLogin\Model\StateManager;
+use MageOS\SocialLogin\Model\ProfileLoginFlow;
+use MageOS\SocialLogin\Model\ProviderPool;
+use MageOS\SocialLogin\Model\StateManager;
 use Magento\Framework\App\Action\HttpGetActionInterface;
 use Magento\Framework\App\RequestInterface;
 use Magento\Framework\Controller\Result\RedirectFactory;

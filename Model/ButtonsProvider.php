@@ -1,10 +1,10 @@
 <?php
 declare(strict_types=1);
 
-namespace Digitalway\SocialLogin\Model;
+namespace MageOS\SocialLogin\Model;
 
-use Digitalway\SocialLogin\Api\ProviderIconInterface;
-use Digitalway\SocialLogin\Api\ProviderInterface;
+use MageOS\SocialLogin\Api\ProviderIconInterface;
+use MageOS\SocialLogin\Api\ProviderInterface;
 use Magento\Framework\UrlInterface;
 use Magento\Framework\View\Asset\Repository as AssetRepository;
 
@@ -65,7 +65,7 @@ class ButtonsProvider
             $icon = trim($provider->getIcon());
         }
         if ($icon === '') {
-            $icon = 'Digitalway_SocialLogin::images/' . $code . '.svg';
+            $icon = 'MageOS_SocialLogin::images/' . $code . '.svg';
         }
 
         return preg_match(self::ABSOLUTE_URL_PATTERN, $icon) === 1

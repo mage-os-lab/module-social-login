@@ -1,12 +1,12 @@
 <?php
 declare(strict_types=1);
 
-namespace Digitalway\SocialLogin\Test\Unit\Model;
+namespace MageOS\SocialLogin\Test\Unit\Model;
 
-use Digitalway\SocialLogin\Model\CustomerCreator;
-use Digitalway\SocialLogin\Model\CustomerLinker;
-use Digitalway\SocialLogin\Model\Profile;
-use Digitalway\SocialLogin\Model\ResourceModel\Identity;
+use MageOS\SocialLogin\Model\CustomerCreator;
+use MageOS\SocialLogin\Model\CustomerLinker;
+use MageOS\SocialLogin\Model\Profile;
+use MageOS\SocialLogin\Model\ResourceModel\Identity;
 use Magento\Customer\Api\CustomerRepositoryInterface;
 use Magento\Customer\Api\Data\CustomerInterface;
 use Magento\Framework\Exception\LocalizedException;

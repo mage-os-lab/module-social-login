@@ -1,12 +1,12 @@
 <?php
 declare(strict_types=1);
 
-namespace Digitalway\SocialLogin\Test\Unit\Model\Provider;
+namespace MageOS\SocialLogin\Test\Unit\Model\Provider;
 
-use Digitalway\SocialLogin\Model\Config;
-use Digitalway\SocialLogin\Model\Http\HttpClient;
-use Digitalway\SocialLogin\Model\Profile;
-use Digitalway\SocialLogin\Model\Provider\LinkedIn;
+use MageOS\SocialLogin\Model\Config;
+use MageOS\SocialLogin\Model\Http\HttpClient;
+use MageOS\SocialLogin\Model\Profile;
+use MageOS\SocialLogin\Model\Provider\LinkedIn;
 use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\Attributes\AllowMockObjectsWithoutExpectations;
 use PHPUnit\Framework\TestCase;

@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace Digitalway\SocialLogin\Model\ResourceModel;
+namespace MageOS\SocialLogin\Model\ResourceModel;
 
 use Magento\Customer\Model\Config\Share as CustomerShareConfig;
 use Magento\Framework\DB\Adapter\DuplicateException;
@@ -11,7 +11,7 @@ use Magento\Framework\Model\ResourceModel\Db\Context;
 
 class Identity extends AbstractDb
 {
-    public const TABLE = 'digitalway_social_identity';
+    public const TABLE = 'mageos_social_identity';
 
     public function __construct(
         Context $context,

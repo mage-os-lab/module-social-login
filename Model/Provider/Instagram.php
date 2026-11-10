@@ -1,9 +1,9 @@
 <?php
 declare(strict_types=1);
 
-namespace Digitalway\SocialLogin\Model\Provider;
+namespace MageOS\SocialLogin\Model\Provider;
 
-use Digitalway\SocialLogin\Model\Profile;
+use MageOS\SocialLogin\Model\Profile;
 
 /**
  * "Instagram API with Instagram Login": Business/Creator accounts only,

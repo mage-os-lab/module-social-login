@@ -1,10 +1,10 @@
 <?php
 declare(strict_types=1);
 
-namespace Digitalway\SocialLogin\Test\Unit\Model;
+namespace MageOS\SocialLogin\Test\Unit\Model;
 
-use Digitalway\SocialLogin\Model\StateManager;
-use Digitalway\SocialLogin\Test\Unit\Fake\InMemorySessionBag;
+use MageOS\SocialLogin\Model\StateManager;
+use MageOS\SocialLogin\Test\Unit\Fake\InMemorySessionBag;
 use Magento\Framework\Exception\LocalizedException;
 use Magento\Framework\Math\Random;
 use Magento\Framework\Stdlib\DateTime\DateTime;

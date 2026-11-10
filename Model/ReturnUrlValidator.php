@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace Digitalway\SocialLogin\Model;
+namespace MageOS\SocialLogin\Model;
 
 use Magento\Framework\Url\DecoderInterface;
 use Magento\Framework\Url\HostChecker;
