@@ -58,6 +58,13 @@ for each provider. Copy the read-only **Redirect URI** field into the provider c
 
 Identities are stored in the `mageos_social_identity` table (one per provider per customer, website-scoped).
 
+## Hyvä
+
+Hyvä themes are supported out of the box: on the login and registration pages the buttons use a
+Tailwind template with the standard Hyvä button classes (`btn btn-secondary`), so no theme
+configuration is required. To restyle them, target the `mageos-social-login`,
+`mageos-social-login__button` and `mageos-social-login__button--<provider>` classes in the theme.
+
 ## Documentation
 
 - [Configuration](docs/configuration.md): configuration paths, `bin/magento config:set` examples, button icons
