@@ -1,0 +1,33 @@
+<?php
+/**
+ * Social sign-in buttons for Hyvä themes (login and registration pages).
+ *
+ * Uses only the standard Hyvä button classes (btn, btn-secondary) and core Tailwind utilities, so it
+ * needs no Tailwind configuration in the theme. Themes can restyle it through the
+ * mageos-social-login* classes.
+ */
+/** @var \MageOS\SocialLogin\Block\Buttons $block */
+/** @var \Magento\Framework\Escaper $escaper */
+$buttons = $block->getButtons();
+if ($buttons === []) {
+    return;
+}
+?>
+<div class="mageos-social-login">
+    <div class="flex items-center my-4">
+        <div class="flex-1 border-t border-gray-300"></div>
+        <span class="px-3 text-sm text-gray-500 uppercase"><?= $escaper->escapeHtml(__('Or sign in with')) ?></span>
+        <div class="flex-1 border-t border-gray-300"></div>
+    </div>
+    <ul class="mageos-social-login__list grid gap-3">
+        <?php foreach ($buttons as $button): ?>
+            <li>
+                <a class="mageos-social-login__button mageos-social-login__button--<?= $escaper->escapeHtmlAttr($button['code']) ?> btn btn-secondary w-full gap-3"
+                   href="<?= $escaper->escapeUrl($button['url']) ?>">
+                    <img src="<?= $escaper->escapeUrl($button['icon']) ?>" alt="" width="20" height="20" class="shrink-0"/>
+                    <span><?= $escaper->escapeHtml($button['text']) ?></span>
+                </a>
+            </li>
+        <?php endforeach; ?>
+    </ul>
+</div>

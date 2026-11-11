@@ -5,6 +5,16 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/)
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+
+## [0.4.0] - 2026-11-11
+### Added
+- **Hyvä support**: on Hyvä themes the login and registration pages render the buttons with a
+  Tailwind template (`hyva/buttons.phtml`, selected through the `hyva_customer_account_login` and
+  `hyva_customer_account_create` layout handles). It uses only the standard Hyvä button classes
+  (`btn btn-secondary`) and core utilities, so no Tailwind configuration is needed in the theme;
+  the `mageos-social-login*` classes are available for theme styling. Before, the buttons were
+  unstyled on Hyvä because the Luma LESS is not loaded there. Luma is unchanged.
+
 ### Changed
 - **BREAKING: `digitalway` renamed to `mageos`** (#7). Composer package `mage-os-lab/module-social-login`
   (with `replace` of `digitalway/module-social-login`), module `MageOS_SocialLogin`, namespace
